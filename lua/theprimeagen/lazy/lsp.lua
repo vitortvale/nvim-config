@@ -122,16 +122,24 @@ return {
             })
         })
 
-        vim.diagnostic.config({
-            -- update_in_insert = true,
-            float = {
-                focusable = false,
-                style = "minimal",
-                border = "rounded",
-                source = "always",
-                header = "",
-                prefix = "",
-            },
-        })
-    end
-}
+    vim.diagnostic.config({
+        virtual_text = {
+            source = "always", -- show "eslint: ..." or "tsserver: ..."
+            prefix = "●",      -- could be "■", "▎", "x"
+            spacing = 2,       -- space between text and message
+        },
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+        float = {
+            focusable = false,
+            style = "minimal",
+            border = "rounded",
+            source = "always",
+            header = "",
+            prefix = "",
+        },
+    })
+        end
+    }
